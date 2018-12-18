@@ -6,14 +6,14 @@ class DishDetail extends Component {
         super(props);
     }
 
-    renderDish(selectedDish){
-        if (selectedDish != null){
+    renderDish(dish){
+        if (dish != null){
           return (
             <Card>
-              <CardImg width="100%" object src={selectedDish.image} alt={selectedDish.name} />
+              <CardImg width="100%" object src={dish.image} alt={dish.name} />
               <CardBody>
-                <CardTitle>{selectedDish.name}</CardTitle>
-                <CardText>{selectedDish.description}</CardText>
+                <CardTitle>{dish.name}</CardTitle>
+                <CardText>{dish.description}</CardText>
               </CardBody>
             </Card>
           );
@@ -22,10 +22,10 @@ class DishDetail extends Component {
         }
     }
 
-    renderComment(selectedComments) {
-        if(selectedComments !=null) {
+    renderComments(comments) {
+        if(comments !=null) {
             return (
-                this.props.selectedComments.map((comment)=> {
+                this.props.comments.map((comment)=> {
                     return (
                         <li key={comment.id}>
                             <p>{comment.comment}</p>
@@ -53,12 +53,12 @@ class DishDetail extends Component {
         return (
             <div className="row">
                 <div className="col-12 col-md-5 m-1">
-                    {this.renderDish(this.props.selectedDish)}
+                    {this.renderDish(this.props.dish)}
                 </div>
                 <div className="col-12 col-md-5 m-1">
                     <ul className="list-unstyled text-left" >
                         <h4>Comments</h4>
-                        {this.renderComment(this.props.selectedComments)}
+                        {this.renderComments(this.props.comments)}
                     </ul>
                 </div>
             </div> 
