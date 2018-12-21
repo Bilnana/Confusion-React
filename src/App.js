@@ -4,8 +4,6 @@ import {DISHES} from './shared/dishes'
 import './App.css';
 
 
-import { Navbar, NavbarBrand } from 'reactstrap';
-
 class App extends Component {
   constructor(props) {
     super(props);

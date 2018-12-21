@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class DishDetail extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     renderDish(dish){
         if (dish != null){
@@ -22,31 +19,21 @@ class DishDetail extends Component {
         }
     }
 
-    // renderComments(props) {
-    //     if(props.comments !=null) {
-    //         return (
-    //             props.comments.map((comment)=> {
-    //                 return (
-    //                     <li key={comment.id}>
-    //                         <p>{comment.comment}</p>
-    //                         <p>--{comment.author} , {comment.date}</p>
-    //                     </li>
-    //                 )
-    //             })
-    //         )
-           
-    //         console.log('NOT null');
+    renderComments (dish) {
+        if(dish !=null) {
+            return (
+              dish.comments.map((comment) => {
+                return (
+                    <li key={comment.id}>
+                        <p>{comment.comment}</p>
+                        <p>--{comment.author} , {comment.date}</p>
+                    </li>
+                )
+              })
+            )
+        }       
+    }
 
-    //     } else {
-    //         return (
-    //             <div></div>
-    //         )
-
-    //         console.log('null');
-    //     }
-    //     console.log(props.comments);
-    // }
-    
     render() {
        
         //console.log(this.props.selectedComments);
@@ -60,7 +47,7 @@ class DishDetail extends Component {
                     <div className="col-12 col-md-5 m-1">
                         <ul className="list-unstyled text-left" >
                             <h4>Comments</h4>
-                            {/* {this.renderComments()} */}
+                            {this.renderComments(this.props.dish)}
                         </ul>
                     </div>
                 </div>
