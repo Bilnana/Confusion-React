@@ -19,13 +19,14 @@ class Main extends Component {
   onDishSelect(dishId){
     this.setState({
       selectedDish : dishId,
-      //selectedComments : dish.comments
+      //selectedComments : selectedDish.comments
     });
 
     // console.log(dishId);
   }
 
   render() {
+    console.log(this.state.selectedComments);
     return (
       <div>
         <Navbar dark color="primary">
