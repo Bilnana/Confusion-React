@@ -7,14 +7,19 @@ import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { DISHES } from '../shared/dishes';
+import { COMMENTS } from '../shared/comments';
+import { PROMOTIONS } from '../shared/promotions';
+import { LEADERS } from '../shared/leaders';
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       dishes: DISHES,
-      selectedDish : null,
-     //selectedComments : null
+      comments: COMMENTS,
+      promotions: PROMOTIONS,
+      leaders: LEADERS,
+      selectedDish : null
     };
   }
 
@@ -23,6 +28,9 @@ class Main extends Component {
     const HomePage = () => {
       return(
           <Home 
+              dish={this.state.dishes.filter((dish) => dish.featured)[0]}
+              promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
+              leader={this.state.leaders.filter((leader) => leader.featured)[0]}
           />
       );
     }
